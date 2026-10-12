@@ -64,8 +64,7 @@ kyrieCues = <<
     }
     % bar 28
     \sung {
-      \clef "treble_8"
-      r4 e,2 ( d4 ) |
+      r4 \clef "treble_8" e,2 ^ "Tenor" ( d4 ) |
       c r8 c c4. ( d8 ) |
       c4 e2 ( d4 ) |
       c4 r8 c c4. ( d8) |

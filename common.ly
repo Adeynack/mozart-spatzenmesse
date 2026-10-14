@@ -29,11 +29,23 @@
 %
 %   \sung { e'4 g'8. b16 c'4 r8 c' } \lyricmode { Ky -- ri -- e }
 %
-% Each syllable goes on the next note (rests and tied-to notes are skipped).
-% "--" joins the syllables of one word, "__" draws an extender line, and
-% "_" leaves a note without a syllable. \pkSystem prints all the syllables
-% on one lyrics line under the cue staff.
+% Each syllable goes on the next note (rests, tied-to notes and grace notes
+% are skipped). "--" joins the syllables of one word, "__" draws an extender
+% line, and "_" leaves a note without a syllable. \pkSystem prints all the
+% syllables on one lyrics line under the cue staff.
 % ---------------------------------------------------------------------------
+
+% The notes and rests of some music, in order, leaving out grace notes
+% (\appoggiatura, \grace, ...): they take no time, so they get no syllable.
+#(define (pk-singable-notes m)
+   (cond
+     ((eq? (ly:music-property m 'name) 'GraceMusic) '())
+     ((memq (ly:music-property m 'name) '(NoteEvent EventChord RestEvent)) (list m))
+     (else
+      (let ((element (ly:music-property m 'element)))
+        (append (if (ly:music? element) (pk-singable-notes element) '())
+                (append-map pk-singable-notes (ly:music-property m 'elements)))))))
+
 sung = #(define-music-function (notes lyrics) (ly:music? ly:music?)
   (let ((syllables (extract-named-music lyrics '(LyricEvent SkipEvent)))
         (tied-from-previous #f))
@@ -48,7 +60,7 @@ sung = #(define-music-function (notes lyrics) (ly:music? ly:music?)
              (set! syllables (cdr syllables))))
           (if (not (eq? (ly:music-property note 'name) 'RestEvent))
               (set! tied-from-previous tied))))
-      (extract-named-music notes '(NoteEvent EventChord RestEvent)))
+      (pk-singable-notes notes))
     (if (pair? syllables)
         (ly:input-warning (*location*) "\\sung: more syllables than notes"))
     notes))
@@ -96,11 +108,14 @@ pkSystem = #(define-music-function (cues pauken) (ly:music? ly:music?)
         instrumentName = "Cues"
         shortInstrumentName = "Cue"
         \magnifyStaff #5/7
-      } $cues
+      } \new Voice = "pkCues" $cues
 
-      % Lyrics of the cues (from \sung), hidden where there are none
+      % Lyrics of the cues (from \sung), hidden where there are none.
+      % Linking them to the cue voice lets "__" draw its extender line
+      % up to the last note of the melisma.
       \new Lyrics \with {
         \override LyricText.font-size = #-1
+        associatedVoice = "pkCues"
       } { $(pk-cue-lyrics cues) }
 
       % Lower line: the timpani part

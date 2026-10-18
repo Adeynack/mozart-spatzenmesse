@@ -21,4 +21,9 @@
     barNumberVisibility = #all-bar-numbers-visible
     \override BarNumber.break-visibility = ##(#t #t #t)
   }
+  \context {
+    \Staff
+    % Hide a staff on any line where it only has rests (not on the first line)
+    \RemoveEmptyStaves
+  }
 }

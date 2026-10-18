@@ -116,7 +116,7 @@ gloriaPauken = \relative c {
   % Bar 100
   c r g | c r r | c r r | r g g | c\p r r | R2. * 3
   % Bar 107
-  c4 r r | g r r | g r r | g r g | c^\markup { \italic "rit." } g g8 g | c4 r r \bar "|."
+  c4 r r | g r r | g r r | g r g | c\rit g g8 g | c4 r r \bar "|."
 }
 
 \score {

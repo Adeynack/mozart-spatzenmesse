@@ -126,7 +126,7 @@ credoPauken = \relative c {
   % Bar 67
   R1 | r2 r8 g g g | c4 r c r |
   c4 r r g8 8 | c4 c g r | R1
-  r2 r8 c g g | c4 g r8 c g g | c4 g8 8 c4 g | c ^\markup { \italic "rit." } g c r \bar "|."
+  r2 r8 c g g | c4 g r8 c g g | c4 g8 8 c4 g | c\rit g c r \bar "|."
 }
 
 \score {

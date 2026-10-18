@@ -27,3 +27,8 @@
     \RemoveEmptyStaves
   }
 }
+
+% ---------------------------------------------------------------------------
+% SHORTCUTS, written right after a note like a dynamic:  c4\rit
+% ---------------------------------------------------------------------------
+rit = ^\markup { \italic "rit." }

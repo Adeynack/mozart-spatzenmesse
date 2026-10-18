@@ -5,7 +5,7 @@
 % Compile Pauken.ly for the full part, or this file to preview it alone.
 % ===========================================================================
 
-\include "../common.ly"   % header, layout, \pkSystem
+\include "../common.ly"   % header and shared layout
 
 gloriaGlobal = {
   \key c \major
@@ -16,33 +16,59 @@ gloriaGlobal = {
 gloriaCues = \relative c'' {
   \gloriaGlobal
   % Bar 1 - Soprano Tutti
-  \sung { c2 ^ "Sop." c4 | f2 b,4 | c r r | d (e) f | e8. d16 c4 r | }
-    \lyricmode { Et in ter ra pax, pax __ _ ho mi ni bus }
+  c2 ^ "Sop." c4 | f2 b,4 | c r r | d (e) f | e8. d16 c4 r |
   % Bar 6
-  \sung { a2 a4 | g4. (c8) e (g) | g2 (f4) | e r r }
-    \lyricmode { bo nae vo - lun - ta - tis. }
+  a2 a4 | g4. (c8) e (g) | g2 (f4) | e r r
   % Bar 10
-  \sung { e4 ^ "Solo Sop." c e | d r } \lyricmode { Lau da mus te. }
-  \sung { d,8 ^ "Solo Alto" d | g4. (b8) a g | \appoggiatura g8 fis2 } \lyricmode { Be ne di - ci mus te. }
-  \sung { \clef "bass" a,8 ^ "Solo Bass" a | a4 (b) c | \appoggiatura c8 b4 } \lyricmode { Ad o ra - mus te. }
-  \sung { \clef "treble_8" r8 ^ "Solo Tenor" b c d | e8. (d16 c4) b | a r r | } \lyricmode { Glo ri fi ca - - mus te. }
+  e4 ^ "Solo Sop." c e | d r
+  d,8 ^ "Solo Alto" d | g4. (b8) a g | \appoggiatura g8 fis2
+  \clef "bass" a,8 ^ "Solo Bass" a | a4 (b) c | \appoggiatura c8 b4
+  \clef "treble_8" r8 ^ "Solo Tenor" b c d | e8. (d16 c4) b | a r r |
   % Bar 18
-  \sung { \clef "treble" c'4. ^ "Tutti - Sop." 8 4 | fis4. 8 4 | g4 d r | e2 d4 | c c b | 8 8 a2 | g4 r r } \lyricmode { Gra ti as a gi mus ti bi pro pter ma gnam glo ri am tu am. }
+  \clef "treble" c'4. ^ "Tutti - Sop." 8 4 | fis4. 8 4 | g4 d r | e2 d4 | c c b | 8 8 a2 | g4 r r
   % Bar 25
-  \sung { R2. | r4 d ^ "Solo Sop." g8 8 | e4 d r | c4. (e8) d (c) | } \lyricmode { Do mi ne De us, Rex __ _ cae… }
-  \sung { \clef "treble_8" d2 ^ "Solo Tenor" 4 | gis,4. (f'8) e d | c8. 16 } \lyricmode { De us Pa - ter o mni pot…}
-  \sung { \clef "treble" e4 ^ "Solo Alto" 8 8 | dis4 e r | r e e | des8. 16 } \lyricmode { Do mi ne Fi li u ni ge ni… }
-  \sung { \clef "bass" e,4 ^ "Solo Bass" e | dis4 } \lyricmode { Je su Chri… }
-  \sung { \clef "treble" c''4 ^ "Solo Sop." b8 a | g4 b e8 ais, | b4 dis e | \appoggiatura d16 c8 b16 a g4 (fis) | e4 } \lyricmode { Do mi ne De us, A gnus De i, Fi li us __ _ Pa - tris. }
+  R2. | r4 d ^ "Solo Sop." g8 8 | e4 d r | c4. (e8) d (c) |
+  \clef "treble_8" d2 ^ "Solo Tenor" 4 | gis,4. (f'8) e d | c8. 16
+  \clef "treble" e4 ^ "Solo Alto" 8 8 | dis4 e r | r e e | des8. 16
+  \clef "bass" e,4 ^ "Solo Bass" e | dis4
+  \clef "treble" c''4 ^ "Solo Sop." b8 a | g4 b e8 ais, | b4 dis e | \appoggiatura d16 c8 b16 a g4 (fis) | e4
   % Bar 39, Beat 2
-  \sung { r4 ^ "Tutti - Sop." b'\f | c2. | b4 r b | dis2. | e4 r r | e fis g | ais, b r | r b b | ais b r | } \lyricmode { Qui tol lis pec ca ta, pec ca ta mun di mi se re re, }
-  \sung { r4 a a | gis a r | r g g | g2 f4 ~ | f e2 | d4 r } \lyricmode { mi se re re, mi se re re no bis. }
+  r4 ^ "Tutti - Sop." b'\f | c2. | b4 r b | dis2. | e4 r r | e fis g | ais, b r | r b b | ais b r |
+  r4 a a | gis a r | r g g | g2 f4 ~ | f e2 | d4 r
   % Bar 53, Beat 3
-  \sung { a'4 | bes2. | a4 r a | bes2. | 4 r r | aes4 4 4 | 4 g r } \lyricmode { Qui tol lis pec ca ta, pec ca ta mun di }
+  a'4 | bes2. | a4 r a | bes2. | 4 r r | aes4 4 4 | 4 g r
   % Bar 60
-  \sung { r4 c4. 8 | c4 r r | r d4. 8 | 4 r r | r c4. 8 | cis4. 8 d4 ~ | d8 g, g4 (fis) | g4 r } \lyricmode { sus ci pe, sus ci pe de pre ca ti o nem no - stram. }
+  r4 c4. 8 | c4 r r | r d4. 8 | 4 r r | r c4. 8 | cis4. 8 d4 ~ | d8 g, g4 (fis) | g4 r
   % Bar 67, Beat 3
   % TODO…
+}
+
+% LYRICS of the cues (see the Kyrie for how they work).
+gloriaCueWords = \lyricmode {
+  % Bar 1
+  Et in ter -- ra pax, pax __ ho -- mi -- ni -- bus
+  % Bar 6
+  bo -- nae vo -- lun -- ta -- tis.
+  % Bar 10
+  Lau -- da -- mus te.
+  Be -- ne -- di -- ci -- mus te.
+  Ad -- o -- ra -- mus te.
+  Glo -- ri -- fi -- ca -- mus te.
+  % Bar 18
+  Gra -- ti -- as a -- gi -- mus ti -- bi pro -- pter ma -- gnam glo -- ri -- am tu -- am.
+  % Bar 25
+  Do -- mi -- ne De -- us, Rex __ cae…
+  De -- us Pa -- ter o -- mni -- pot…
+  Do -- mi -- ne Fi -- li u -- ni -- ge -- ni…
+  Je -- su Chri…
+  Do -- mi -- ne De -- us, A -- gnus De -- i, Fi -- li -- us __ _ Pa -- tris.
+  % Bar 39, Beat 2
+  Qui tol -- lis pec -- ca -- ta, pec -- ca -- ta mun -- di mi -- se -- re -- re,
+  mi -- se -- re -- re, mi -- se -- re -- re no -- bis.
+  % Bar 53, Beat 3
+  Qui tol -- lis pec -- ca -- ta, pec -- ca -- ta mun -- di
+  % Bar 60
+  sus -- ci -- pe, sus -- ci -- pe de -- pre -- ca -- ti -- o -- nem no -- stram.
 }
 
 gloriaPauken = \relative c {
@@ -68,7 +94,22 @@ gloriaPauken = \relative c {
 }
 
 \score {
-  \pkSystem \gloriaCues \gloriaPauken
+  <<
+    \new Staff \with {
+      instrumentName = "Cues"
+      shortInstrumentName = "Cue"
+      \magnifyStaff #5/7
+    } \new Voice = "cues" { \gloriaCues }
+    \new Lyrics \with {
+      \override LyricText.font-size = #-1
+    } \lyricsto "cues" { \gloriaCueWords }
+
+    \new Staff \with {
+      instrumentName = "Pauken"
+      shortInstrumentName = "Pk."
+      midiInstrument = "timpani"
+    } { \clef bass \gloriaPauken }
+  >>
   \header { piece = "II. Gloria" }
   \layout {}
   \midi {}

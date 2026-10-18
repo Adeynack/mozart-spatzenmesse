@@ -5,7 +5,7 @@
 % Compile Pauken.ly for the full part, or this file to preview it alone.
 % ===========================================================================
 
-\include "../common.ly"   % header, layout, \pkSystem
+\include "../common.ly"   % header and shared layout
 
 credoGlobal = {
   \key c \major
@@ -34,7 +34,19 @@ credoPauken = \fixed c {
 }
 
 \score {
-  \pkSystem \credoCues \credoPauken
+  <<
+    \new Staff \with {
+      instrumentName = "Cues"
+      shortInstrumentName = "Cue"
+      \magnifyStaff #5/7
+    } { \credoCues }
+
+    \new Staff \with {
+      instrumentName = "Pauken"
+      shortInstrumentName = "Pk."
+      midiInstrument = "timpani"
+    } { \clef bass \credoPauken }
+  >>
   \header { piece = "III. Credo" }
   \layout {}
   \midi {}

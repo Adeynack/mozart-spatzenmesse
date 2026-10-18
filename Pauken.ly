@@ -9,13 +9,14 @@
 %
 % Layout of the project:
 %   Pauken.ly                 the full part: list of movements
-%   common.ly                 header, shared layout, \pkSystem
+%   common.ly                 header and shared layout
 %   movements/01-kyrie.ly     one file per movement: includes common.ly,
-%   movements/02-gloria.ly    then its global, cues, Pauken, and \score
+%   movements/02-gloria.ly    then its global, cues, cue lyrics, Pauken,
+%                             and the \score that puts them on the staves
 %   movements/03-credo.ly
 %
 % To add a movement: copy a movement file, rename its variables
-% (e.g. sanctusGlobal, sanctusCues, sanctusPauken), change the piece name,
+% (e.g. sanctusGlobal, sanctusCues, sanctusCueWords, sanctusPauken), change the piece name,
 % and add an \include line for it below.
 % ---------------------------------------------------------------------------
 

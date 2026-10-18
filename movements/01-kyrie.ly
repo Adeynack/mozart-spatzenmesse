@@ -5,7 +5,7 @@
 % Compile Pauken.ly for the full part, or this file to preview it alone.
 % ===========================================================================
 
-\include "../common.ly"   % header, layout, \pkSystem
+\include "../common.ly"   % header and shared layout
 
 % GLOBAL: things shared by both staves of this movement (key, metre, tempo).
 % A "variable" is defined as  name = { ... }  and used later as  \name
@@ -30,66 +30,87 @@ kyrieGlobal = {
 %
 % \fixed c' { ... } means: a plain "c" is middle C (c'), "c'" is an octave up,
 % "b," is the B just below middle C.
-kyrieCues = <<
-  \relative c' {
-    \kyrieGlobal
-    R1*5 |
-    \sung { e'4 ^ "Soprano" g8. b,16 c4 r8 c } \lyricmode { Ky ri - e e } | % bar 6 - soprano
-    \sung { d8 e f4 e r8 c } \lyricmode { lei - - son e } | % bar 7 - soprano
-    \sung { d8 e f4 e r8 g8 } \lyricmode { lei - - son, e } % bar 8 - soprano
-    \sung { g8 f r f f4 g8 f } \lyricmode { lei son e lei son e } | % bar 9 - soprano
-    \sung { e16 d c b c d e fis g4. d8 } \lyricmode { lei - - - - - - - - - } | % bar 10 - soprano
-    \sung { c16 b a gis a b c d e4 ( d8 ) c } \lyricmode { - - - - - - - - - - son. } | % bar 11 - soprano
-    \sung { b8. a32 b c8 b b a r4 } \lyricmode { Ky ri - e e lei son. } | % bar 12 - soprano
-    \sung { r4 d2 c4 } \lyricmode { Chri - } | % bar 13 - soprano
-    \sung { b4 r8 d, e g4 a8 } \lyricmode { ste e lei - - } | % bar 14 - soprano
-    \sung { b4 r r2 } \lyricmode { son. } | % bar 15 - soprano
-    \sung { r4 e2 ( d4 ) } \lyricmode { Chri - } | % bar 16 - soprano
-    \sung { c4 r8 a b c d4 } \lyricmode { ste e lei - - } | % bar 17 - soprano
-    \sung { c8 cis4 d8 r8 b4 c8 } \lyricmode { son. Chri ste, Chri ste } | % bar 18 - soprano
-    \sung { r8 f8 e4 d r } \lyricmode { e lei son. } | % bar 19 - soprano
-    % bar 20    
-    \sung {
-        e4 b8. d16 c4 r8 e |
-        d8 e f4 e r8 c |
-        d e f4 e r8 g |
-        g f r f f4 g,8 f' |
-        e16 d c b c d e f g2 ~ |
-        g16 f e d c b c d e2 ~ |
-        e16 d c b a g a b c4 ~ c16 b c d |
-        e8. d32 e f8 e e d r4 |
-    } \lyricmode {
-      Ky ri - e e lei - - son e lei - - son, e lei son e lei son e lei - - - - - - - - - - - - - - - - - - - - - - - - - son -.
-      Ky ri - e e lei son
-    }
-    % bar 28
-    \sung {
-      r4 \clef "treble_8" e,2 ^ "Tenor" ( d4 ) |
-      c r8 c c4. ( d8 ) |
-      c4 e2 ( d4 ) |
-      c4 r8 c c4. ( d8) |
-      c8 e4 d8 r d4 c8 |
-      r8 c c4 b r8 d16 d |
-      d8 c c ( b ) c4 r |
-    } \lyricmode {
-      Chri - ste e lei - son Chri - ste e lei - son. Chri ste  Chri ste e lei son.
-      Ky ri e e lei - son.
-    }
-    % bar 35
-    \sung {
-      \clef "treble"
-      e'4 ^ "Soprano" g8. b,16 c4 r8 c |
-      d8 ( e f4 ) e r |
-      fis4 f e8 c16 d  e (f) g (f) |
-      e4 (d) c r
-    } \lyricmode {
-      Ky ri - e e lei - - son.
-      Ky ri e, Ky ri e _ e - lei - son.
-    }
-    
-    \bar "|."
-  }
->>
+kyrieCues = \relative c' {
+  \kyrieGlobal
+  R1*5 |
+  e'4 ^ "Soprano" g8. b,16 c4 r8 c | % bar 6 - soprano
+  d8 e f4 e r8 c | % bar 7
+  d8 e f4 e r8 g8 | % bar 8
+  g8 f r f f4 g8 f | % bar 9
+  e16 d c b c d e fis g4. d8 | % bar 10
+  c16 b a gis a b c d e4 ( d8 ) c | % bar 11
+  b8. a32 b c8 b b a r4 | % bar 12
+  r4 d2 c4 | % bar 13
+  b4 r8 d, e g4 a8 | % bar 14
+  b4 r r2 | % bar 15
+  r4 e2 ( d4 ) | % bar 16
+  c4 r8 a b c d4 | % bar 17
+  c8 cis4 d8 r8 b4 c8 | % bar 18
+  r8 f8 e4 d r | % bar 19
+  e4 b8. d16 c4 r8 e | % bar 20
+  d8 e f4 e r8 c |
+  d e f4 e r8 g |
+  g f r f f4 g,8 f' |
+  e16 d c b c d e f g2 ~ |
+  g16 f e d c b c d e2 ~ |
+  e16 d c b a g a b c4 ~ c16 b c d |
+  e8. d32 e f8 e e d r4 |
+  r4 \clef "treble_8" e,2 ^ "Tenor" ( d4 ) | % bar 28
+  c r8 c c4. ( d8 ) |
+  c4 e2 ( d4 ) |
+  c4 r8 c c4. ( d8) |
+  c8 e4 d8 r d4 c8 |
+  r8 c c4 b r8 d16 d |
+  d8 c c ( b ) c4 r |
+  \clef "treble"
+  e'4 ^ "Soprano" g8. b,16 c4 r8 c | % bar 35
+  d8 ( e f4 ) e r |
+  fis4 f e8 c16 d  e (f) g (f) |
+  e4 (d) c r
+  \bar "|."
+}
+
+% LYRICS of the cues. \lyricsto (in the \score below) puts each syllable on
+% the next note of the cue voice; rests and grace notes are skipped, and
+% notes under a slur or tie belong to the syllable before them.
+%   --   hyphen between the syllables of one word
+%   __   extender line after the last syllable of a word (melisma)
+%   _    a note that gets no new syllable
+kyrieCueWords = \lyricmode {
+  Ky -- ri -- _ e e --                  % bar 6
+  lei -- _ _ son e --                   % bar 7
+  lei -- _ _ son, e --                  % bar 8
+  lei -- son e -- lei -- son e --       % bar 9
+  lei -- _ _ _ _ _ _ _ _ _              % bar 10
+  _ _ _ _ _ _ _ _ _ son.                % bar 11
+  Ky -- ri -- _ e e -- lei -- son.      % bar 12
+  Chri -- _                             % bar 13
+  ste e -- lei -- _ _                   % bar 14
+  son.                                  % bar 15
+  Chri --                               % bar 16
+  ste e -- lei -- _ _                   % bar 17
+  son. Chri -- ste, Chri -- ste         % bar 18
+  e -- lei -- son.                      % bar 19
+  Ky -- ri -- _ e e --                  % bar 20
+  lei -- _ _ son e --                   % bar 21
+  lei -- _ _ son, e --                  % bar 22
+  lei -- son e -- lei -- son e --       % bar 23
+  lei -- _ _ _ _ _ _ _ _                % bar 24
+  _ _ _ _ _ _ _ _                       % bar 25
+  _ _ _ _ _ _ _ _ _ son. __ _           % bar 26
+  Ky -- ri -- _ e e -- lei -- son.      % bar 27
+  Chri --                               % bar 28 - tenor
+  ste e -- lei --                       % bar 29
+  son Chri --                           % bar 30
+  ste e -- lei --                       % bar 31
+  son. Chri -- ste Chri -- ste          % bar 32
+  e -- lei -- son. Ky -- ri --          % bar 33
+  e e -- lei -- son.                    % bar 34
+  Ky -- ri -- _ e e --                  % bar 35 - soprano
+  lei -- son.                           % bar 36
+  Ky -- ri -- e, Ky -- ri -- e __ e --  % bar 37
+  lei -- son.                           % bar 38
+}
 
 % PAUKEN: your part, written at sounding pitch in bass clef.
 % \fixed c { ... } means a plain "c" is the C below middle C (C3),
@@ -135,7 +156,24 @@ kyriePauken = \relative c {
 }
 
 \score {
-  \pkSystem \kyrieCues \kyriePauken
+  <<
+    % Upper line: cues, printed smaller so they read as "not mine"
+    \new Staff \with {
+      instrumentName = "Cues"
+      shortInstrumentName = "Cue"
+      \magnifyStaff #5/7
+    } \new Voice = "cues" { \kyrieCues }
+    \new Lyrics \with {
+      \override LyricText.font-size = #-1
+    } \lyricsto "cues" { \kyrieCueWords }
+
+    % Lower line: the timpani part
+    \new Staff \with {
+      instrumentName = "Pauken"
+      shortInstrumentName = "Pk."
+      midiInstrument = "timpani"
+    } { \clef bass \kyriePauken }
+  >>
   \header { piece = "I. Kyrie" }
   \layout {}
   \midi {}

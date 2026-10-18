@@ -40,7 +40,19 @@ gloriaCues = \relative c'' {
   % Bar 60
   r4 c4. 8 | c4 r r | r d4. 8 | 4 r r | r c4. 8 | cis4. 8 d4 ~ | d8 g, g4 (fis) | g4 r
   % Bar 67, Beat 3
-  % TODO…
+  bes4 | d2. | ees4 r g, | f'2 ~ 8. 16 | ees4 r r | ees4 8. 16 4 |
+  % Bar 73
+  ees d r | r g, g | fis g  r | r c c | b c r | 2 4 | 2 4 | c2. | 4 r r | R2. | R2. |
+  % Bar 84
+  c4 ^ "Solo Sop." (e) f8 (d) | c (b a f) a (b) | c4 (b) c | d4. e16 f e4 |
+  % Bar 88
+  \clef "treble_8" f,4 ^ "Solo Tenor" f e | e8 (d) c (b) c c | c (f) f4 e | e8 (d) c (b) c4 |
+  % Bar 92
+  \clef "treble" f'2 ^ "Tutti (Sop.)" e4 | e d r |
+  % Bar 94
+  c4 c c | f4. b,8 b b | c4. 8 4 | a2 4 | g4. (c8) e (g) | g2 (f4) | e4 r g | c, r e | a, r c | d c (b) | c r r | R2. |
+  % Bar 106
+  c4\f (e) f8 (d) | c8 (b a g a b) | c4 r r | b g r | d' g, r | f' g, r | e'8 e d2 | c4 r r
 }
 
 % LYRICS of the cues (see the Kyrie for how they work).
@@ -69,6 +81,20 @@ gloriaCueWords = \lyricmode {
   Qui tol -- lis pec -- ca -- ta, pec -- ca -- ta mun -- di
   % Bar 60
   sus -- ci -- pe, sus -- ci -- pe de -- pre -- ca -- ti -- o -- nem no -- stram.
+  % Bar 67, Beat 3
+  Qui se des ad dex te ram ad dex te ram
+  % Bar 73
+  Pa tris, mi se re re, mi se re re, mi se re re no bis.
+  % Bar 84 - Solor Soprano
+  Quo ni am tu so lus san - - ctus.
+  % Bar 88 - Solor Tenor
+  Tu so lus Do mi nus. Tu so lus Al tis si mus,…
+  % Bar 92 - Tutti (Soprano)
+  Je su Chri ste.
+  % Bar 94
+  Cum San cto Spi ri tu, in glo ri a De i Pa tris A men, a men, a men, a men, a men,
+  % Bar 106
+  a men, a men, a men, a men, a men, am men a men.
 }
 
 gloriaPauken = \relative c {
@@ -76,21 +102,21 @@ gloriaPauken = \relative c {
   % Bar 1
   c4\f r r | g r r | c r r | r g g | c r r |
   % Bar 6
-  c4 r r | c r r | g g g | c c c8 c | c4\p r r | 
+  c4 r r | c r r | g g g | c c c8\> c | c4\!\p r r | 
   % Bar 11
   R2. * 9 |
   % Bar 20
-  g4 r r | c r g | R2. * 2 |
+  g4\f r r | c r g | R2. * 2 |
   % Bar 24
   g4 r r | R2. * 57 |
   % Bar 82
-  g4 r r | g g g | c\p r r | R2. * 8 |
+  g4\f r r | g g g | c\p r r | R2. * 8 |
   % Bar 93
   r4 r g\f | c r r | g r r | \repeat unfold 3 { c r r | } g g g |
   % Bar 100
   c r g | c r r | c r r | r g g | c\p r r | R2. * 3
   % Bar 107
-  c4 r r | g r r | g r r | g r g | c g g8 g | c4^\markup { \italic "rit." } r r \bar "|."
+  c4 r r | g r r | g r r | g r g | c^\markup { \italic "rit." } g g8 g | c4 r r \bar "|."
 }
 
 \score {

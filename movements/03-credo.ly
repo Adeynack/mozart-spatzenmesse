@@ -107,7 +107,7 @@ credoPauken = \relative c {
   c4 r c r | r g8 g c4 c | g r r2 |
   R1 | r8 c g g c4 g8 g \bar "||"
   % Bar 25
-  \tempo "Andante"
+  \tempo "Andante (in 8)"
   c4 r4 r2 | R1 * 9 \bar "||"
   % Bar 35 - Allegro
   \tempo "Allegro"
@@ -124,7 +124,7 @@ credoPauken = \relative c {
   c4 r4 r2 | c4 c g r | c r g r |
   r2 g4 r |
   % Bar 67
-  R1 | r2 r8 g g g | c4 r c r |
+  R1 | r2 r8 g\f g g | c4 r c r |
   c4 r r g8 8 | c4 c g r | R1
   r2 r8 c g g | c4 g r8 c g g | c4 g8 8 c4 g | c\rit g c r \bar "|."
 }

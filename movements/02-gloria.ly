@@ -115,8 +115,8 @@ gloriaPauken = \relative c {
   r4 r g\f | c r r | g r r | \repeat unfold 3 { c r r | } g g g |
   % Bar 100
   c r g | c r r | c r r | r g g | c r r | R2. * 3
-  % Bar 107
-  c4 r r | g r r | g r r | g r g | c\rit g g8 g | c4 r r \bar "|."
+  % Bar 108
+  c4\f r r | g r r | g r r | g r g | c\rit g g8 g | c4 r r \bar "|."
 }
 
 \score {

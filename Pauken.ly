@@ -29,3 +29,4 @@
 \include "movements/03-credo.ly"
 \include "movements/04-sanctus.ly"
 \include "movements/05-benedictus.ly"
+\include "movements/06-agnus-dei.ly"

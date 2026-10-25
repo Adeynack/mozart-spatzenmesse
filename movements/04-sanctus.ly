@@ -15,7 +15,7 @@ sanctusPauken = \relative c {
   \sanctusGlobal
   \time 3/4 \tempo "Andante"
   c4\f r r | g r r | c r r | g r r | g r r |
-  g g c | g g r\fermata \bar "||"
+  g g c | g g r\fermata \bar "||" |
   % Bar 8 - Allegro
   \time 4/4 \tempo "Allegro"
   r2 c4 g | c r r8 c g g |
